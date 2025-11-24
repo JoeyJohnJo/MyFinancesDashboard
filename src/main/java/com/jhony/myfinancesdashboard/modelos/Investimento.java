@@ -15,7 +15,7 @@ public class Investimento {
     private Long id;
 
     private String nome;
-    private BigDecimal totalInvestido;
+    private BigDecimal totalInvestido = BigDecimal.ZERO;
     private LocalDate dataCriacao = LocalDate.now();
 
     @OneToMany(mappedBy = "investimento")

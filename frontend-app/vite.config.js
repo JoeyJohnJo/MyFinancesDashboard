@@ -5,9 +5,14 @@ export default defineConfig({
   plugins: [svelte()],
   server: {
     port: 5173,
+    host: true,
+    allowedHosts: [
+      'peak-monthly-intelligence-fifteen.trycloudflare.com',
+      '.trycloudflare.com'
+    ],
     proxy: {
       '/api': {
-        target: 'https://significant-supervisors-apartments-turbo.trycloudflare.com',
+        target: 'https://contract-darwin-butler-warnings.trycloudflare.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
