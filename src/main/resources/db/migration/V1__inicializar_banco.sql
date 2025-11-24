@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS meta
 (
     id              BIGINT  NOT NULL PRIMARY KEY DEFAULT nextval('meta_seq'),
     nome            VARCHAR NOT NULL,
+    descricao       VARCHAR NOT NULL,
     valor_objetivo  DECIMAL,
     valor_alcancado DECIMAL
 

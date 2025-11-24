@@ -12,6 +12,6 @@ import java.time.LocalDate;
 public interface DespesaRepositorio extends JpaRepository<Despesa, Long> {
 
 
-    @Query("select sum(valor) from Despesa WHERE vencimento BETWEEN :dataInicial AND :dataFinal")
+    @Query("select sum(valor) from Despesa WHERE vencimento BETWEEN :dataInicio AND :dataFim")
     BigDecimal somarDespesasEntreDatas(LocalDate dataInicio, LocalDate dataFim);
 }

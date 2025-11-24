@@ -1,6 +1,7 @@
 package com.jhony.myfinancesdashboard.dtos;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 public class DetalhesPlanejamentoDto {
 
@@ -42,6 +43,8 @@ public class DetalhesPlanejamentoDto {
     }
 
     public BigDecimal getSaldoLivre() {
-        return receitaTotal.subtract(despesaTotal).subtract(poupancaTotal);
+        return receitaTotal.subtract(
+                Optional.ofNullable(despesaTotal).orElse(BigDecimal.ZERO))
+                .subtract(Optional.ofNullable(poupancaTotal).orElse(BigDecimal.ZERO));
     }
 }

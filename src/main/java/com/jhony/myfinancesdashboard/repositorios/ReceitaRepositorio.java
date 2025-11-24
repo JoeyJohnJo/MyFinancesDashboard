@@ -11,6 +11,6 @@ import java.time.LocalDate;
 @Repository
 public interface ReceitaRepositorio extends JpaRepository<Receita, Long> {
 
-    @Query("select sum(valorReceita) from Receita WHERE dataReceita BETWEEN :dataInicial AND :dataFinal")
+    @Query("select sum(valorReceita) from Receita WHERE dataReceita BETWEEN :dataInicio AND :dataFim")
     BigDecimal somarReceitaEntreDatas(LocalDate dataInicio, LocalDate dataFim);
 }

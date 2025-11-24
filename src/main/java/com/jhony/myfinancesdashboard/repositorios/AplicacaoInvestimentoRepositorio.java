@@ -14,6 +14,6 @@ public interface AplicacaoInvestimentoRepositorio extends JpaRepository<Aplicaca
 
     List<AplicacaoInvestimento> findAllByInvestimentoId(Long investimentoId);
 
-    @Query("select sum(valorAplicado) from AplicacaoInvestimento WHERE dataAplicacao BETWEEN :dataInicial AND :dataFinal")
+    @Query("select sum(valorAplicado) from AplicacaoInvestimento WHERE dataAplicacao BETWEEN :dataInicio AND :dataFim")
     BigDecimal somarAplicacoesEntreDatas(LocalDate dataInicio, LocalDate dataFim);
 }
