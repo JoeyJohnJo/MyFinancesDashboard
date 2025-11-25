@@ -3,6 +3,7 @@ package com.jhony.myfinancesdashboard.servicos;
 import com.jhony.myfinancesdashboard.modelos.Investimento;
 import com.jhony.myfinancesdashboard.repositorios.AplicacaoInvestimentoRepositorio;
 import com.jhony.myfinancesdashboard.repositorios.InvestimentoRepositorio;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.List;
 public class InvestimentoServico {
 
     private final InvestimentoRepositorio investimentoRepositorio;
+    private final AplicacaoInvestimentoRepositorio aplicacaoInvestimentoRepositorio;
 
-    public InvestimentoServico(InvestimentoRepositorio investimentoRepositorio) {
+    public InvestimentoServico(InvestimentoRepositorio investimentoRepositorio, AplicacaoInvestimentoRepositorio aplicacaoInvestimentoRepositorio) {
         this.investimentoRepositorio = investimentoRepositorio;
+        this.aplicacaoInvestimentoRepositorio = aplicacaoInvestimentoRepositorio;
     }
 
     public List<Investimento> buscarInvestimentos() {
@@ -32,7 +35,9 @@ public class InvestimentoServico {
         return investimentoRepositorio.save(investimento);
     }
 
+    @Transactional
     public void deletarInvestimento(Long id) {
+        aplicacaoInvestimentoRepositorio.deleteAllByInvestimentoId(id);
         investimentoRepositorio.deleteById(id);
     }
 }

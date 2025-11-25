@@ -1,6 +1,7 @@
 package com.jhony.myfinancesdashboard.repositorios;
 
 import com.jhony.myfinancesdashboard.modelos.AplicacaoInvestimento;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,7 @@ public interface AplicacaoInvestimentoRepositorio extends JpaRepository<Aplicaca
 
     @Query("select sum(valorAplicado) from AplicacaoInvestimento WHERE dataAplicacao BETWEEN :dataInicio AND :dataFim")
     BigDecimal somarAplicacoesEntreDatas(LocalDate dataInicio, LocalDate dataFim);
+
+    @Transactional
+    void deleteAllByInvestimentoId(Long investimentoId);
 }

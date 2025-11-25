@@ -43,7 +43,7 @@ public class DetalhesPlanejamentoDto {
     }
 
     public BigDecimal getSaldoLivre() {
-        return receitaTotal.subtract(
+        return Optional.ofNullable(receitaTotal).orElse(BigDecimal.ZERO).subtract(
                 Optional.ofNullable(despesaTotal).orElse(BigDecimal.ZERO))
                 .subtract(Optional.ofNullable(poupancaTotal).orElse(BigDecimal.ZERO));
     }

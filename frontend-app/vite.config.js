@@ -7,12 +7,12 @@ export default defineConfig({
     port: 5173,
     host: true,
     allowedHosts: [
-      'peak-monthly-intelligence-fifteen.trycloudflare.com',
+      'https://betty-essence-males-apply.trycloudflare.com',
       '.trycloudflare.com'
     ],
     proxy: {
       '/api': {
-        target: 'https://contract-darwin-butler-warnings.trycloudflare.com',
+        target: 'https://court-earthquake-mag-petition.trycloudflare.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
