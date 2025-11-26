@@ -47,7 +47,7 @@ public class PlanejamentoFinanceiroService {
 
     private Pair<LocalDate, LocalDate> extrairInicioEFimDoMes(LocalDate data) {
         LocalDate dataInicial = data.withDayOfMonth(1);
-        LocalDate dataFinal = data.withDayOfMonth(data.getDayOfMonth());
+        LocalDate dataFinal = data.withDayOfMonth(data.getMonth().length(data.isLeapYear()));
 
         return Pair.of(dataInicial, dataFinal);
     }
